@@ -452,7 +452,7 @@ namespace UnityEditorEx
                     GUI.enabled = true;
 
                 }
-                else if (val is Object || (val == null && specifiedTypes[i - deletedcount] == typeof(Object))) // ((Object)val) == null
+                else if (val is Object || (val == null && specifiedTypes[i - deletedcount] as Type == typeof(Object))) // ((Object)val) == null
                 {
                     EditorGUI.BeginChangeCheck();
                     var newKey = EditorGUI.TextField(keyrect, key, keydirty ? _GUI_BoldTextField : EditorStyles.textField);
@@ -668,13 +668,13 @@ namespace UnityEditorEx
                 var real = val;
                 if (val != null)
                 {
-                    if (specifiedTypes[index] == typeof(string))
+                    if (specifiedTypes[index] as Type == typeof(string))
                     {
                         real = real.ToString();
                     }
                     else if (val is Object)
                     {
-                        if (specifiedTypes[index] == typeof(Object))
+                        if (specifiedTypes[index] as Type == typeof(Object))
                         {
                             specifiedTypes[index] = null;
                         }
@@ -738,7 +738,7 @@ namespace UnityEditorEx
             {
                 var kvp = rawindices[index];
                 var val = kvp.Value;
-                if ((val is Object || index == newindex2) && val != null || val == null && specifiedTypes[index] == typeof(Object))
+                if ((val is Object || index == newindex2) && val != null || val == null && specifiedTypes[index] as Type == typeof(Object))
                 {
                     GenericMenu menu = new GenericMenu();
 
@@ -844,7 +844,7 @@ namespace UnityEditorEx
                     GenericMenu menu = new GenericMenu();
                     if (rawindices != null && index >= 0 && index < rawindices.Count)
                     {
-                        var KeepStringType = specifiedTypes[index] == typeof(string);
+                        var KeepStringType = specifiedTypes[index] as Type == typeof(string);
 
                         System.Action<string> addMenuItem = (name) =>
                         {
@@ -990,7 +990,7 @@ namespace UnityEditorEx
                     }
                     menu.ShowAsContext();
                 }
-                else if ((val is Object && ((Object)val) == null) || (val == null && specifiedTypes[index] == typeof(Object)))
+                else if ((val is Object && ((Object)val) == null) || (val == null && specifiedTypes[index] as Type == typeof(Object)))
                 {
                     GenericMenu menu = new GenericMenu();
                     menu.AddItem(new GUIContent("Auto"), true, () => { });
