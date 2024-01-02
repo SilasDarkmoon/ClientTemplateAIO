@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.mosaic.mods",
+
+    "displayName": "Mosaic Mods-Framework Editor",
+
+    "version": "1.0.0",
+
+    "unity": "2018.3",
+
+    "description": "Mosaic Mods-Framework Editor",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
