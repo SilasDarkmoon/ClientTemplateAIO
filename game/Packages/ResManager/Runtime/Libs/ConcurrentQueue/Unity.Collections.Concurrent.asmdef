@@ -1,0 +1,15 @@
+{
+    "name": "Unity.Collections.Concurrent",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "!NET_4_6",
+        "!NET_STANDARD_2_0"
+    ],
+    "versionDefines": []
+}

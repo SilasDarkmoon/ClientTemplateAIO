@@ -1,0 +1,3 @@
+-define:MOD_RESMANAGER
+-define:UNITY_ENGINE
+-r:System.IO.Compression.dll

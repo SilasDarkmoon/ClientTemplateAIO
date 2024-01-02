@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.mosaic.resmanager",
+
+    "displayName": "Mosaic Res Manager",
+
+    "version": "2.0.1",
+
+    "unity": "2018.3",
+
+    "description": "Mosaic Res Manager",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
