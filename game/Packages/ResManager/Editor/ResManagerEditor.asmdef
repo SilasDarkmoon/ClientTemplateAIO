@@ -8,7 +8,7 @@
         "ResManagerEditorEntry",
         "ResManagerEntry",
         "ModsEditor",
-        "MosMods"
+        "ModsMain"
     ],
     "includePlatforms": [
         "Editor"

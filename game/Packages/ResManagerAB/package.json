@@ -1,14 +1,14 @@
 {
 
-    "name": "host.silas.mosaic.resmanager.ab",
+    "name": "host.silas.mods.resmanager.ab",
 
-    "displayName": "Mosaic Res Manager - AssetBundle Implement",
+    "displayName": "Mods Framework Res Manager - AssetBundle Implement",
 
     "version": "2.0.1",
 
     "unity": "2018.3",
 
-    "description": "Mosaic Res Manager - AssetBundle Implement",
+    "description": "Mods Framework Res Manager - AssetBundle Implement",
 
     "keywords": [
         "unity"

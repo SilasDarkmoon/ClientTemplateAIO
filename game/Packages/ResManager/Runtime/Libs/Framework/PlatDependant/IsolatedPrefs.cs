@@ -48,8 +48,8 @@ namespace UnityEngineEx
 #endif
                     if (ResManager.IsInUnityFolder)
                     {
-                        file = ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/runtime/iid.txt";
-                        fileh = ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/runtime/iidh.txt";
+                        file = ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/runtime/iid.txt";
+                        fileh = ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/runtime/iidh.txt";
                     }
 #endif
                     if (PlatDependant.IsFileExist(fileh))
@@ -137,7 +137,7 @@ namespace UnityEngineEx
 #endif
                     if (ResManager.IsInUnityFolder)
                     {
-                        file = ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/runtime/iid.txt";
+                        file = ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/runtime/iid.txt";
                     }
 #endif
                     int instanceid = 0;
@@ -335,27 +335,27 @@ namespace UnityEngineEx
         private static string LoadInstallID()
         {
 #if UNITY_EDITOR || !UNITY_ENGINE && !UNITY_5_3_OR_NEWER
-            string mosid = null;
+            string meid = null;
 #if UNITY_ENGINE || UNITY_5_3_OR_NEWER
-            string mosidfile = "EditorOutput/Runtime/mosid.txt";
+            string meidfile = "EditorOutput/Runtime/meid.txt";
 #else
 #if USE_CURRENT_FOLDER_AS_DATAPATH
-            string mosidfile = "./runtime/mosid.txt";
+            string meidfile = "./runtime/meid.txt";
 #else
-            string mosidfile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "runtime/mosid.txt");
+            string meidfile = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "runtime/meid.txt");
 #endif
             if (ResManager.IsInUnityFolder)
             {
-                mosidfile = ResManager.UnityRoot + "/EditorOutput/Runtime/mosid.txt";
+                meidfile = ResManager.UnityRoot + "/EditorOutput/Runtime/meid.txt";
             }
 #endif
-            if (PlatDependant.IsFileExist(mosidfile))
+            if (PlatDependant.IsFileExist(meidfile))
             {
                 try
                 {
-                    using (var sr = PlatDependant.OpenReadText(mosidfile))
+                    using (var sr = PlatDependant.OpenReadText(meidfile))
                     {
-                        mosid = sr.ReadLine().Trim();
+                        meid = sr.ReadLine().Trim();
                     }
                 }
                 catch (Exception e)
@@ -363,14 +363,14 @@ namespace UnityEngineEx
                     LogError(e);
                 }
             }
-            if (string.IsNullOrEmpty(mosid))
+            if (string.IsNullOrEmpty(meid))
             {
-                mosid = Guid.NewGuid().ToString("N");
+                meid = Guid.NewGuid().ToString("N");
                 try
                 {
-                    using (var sw = PlatDependant.OpenWriteText(mosidfile))
+                    using (var sw = PlatDependant.OpenWriteText(meidfile))
                     {
-                        sw.WriteLine(mosid);
+                        sw.WriteLine(meid);
                     }
                 }
                 catch (Exception e)
@@ -378,20 +378,20 @@ namespace UnityEngineEx
                     LogError(e);
                 }
             }
-            return mosid;
+            return meid;
 #else
-            string mosid = null;
-            if (PlayerPrefs.HasKey("___Pref__MosID"))
+            string meid = null;
+            if (PlayerPrefs.HasKey("___Pref__MeID"))
             {
-                mosid = PlayerPrefs.GetString("___Pref__MosID");
+                meid = PlayerPrefs.GetString("___Pref__MeID");
             }
-            if (string.IsNullOrEmpty(mosid))
+            if (string.IsNullOrEmpty(meid))
             {
-                mosid = Guid.NewGuid().ToString("N");
-                PlayerPrefs.SetString("___Pref__MosID", mosid);
+                meid = Guid.NewGuid().ToString("N");
+                PlayerPrefs.SetString("___Pref__MeID", meid);
                 PlayerPrefs.Save();
             }
-            return mosid;
+            return meid;
 #endif
         }
         public static void ReloadInstallID()
@@ -489,7 +489,7 @@ namespace UnityEngineEx
             {
                 if (ResManager.IsInUnityFolder)
                 {
-                    return ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/instance0";
+                    return ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/instance0";
                 }
 #if USE_CURRENT_FOLDER_AS_DATAPATH
                 return "./cache";
@@ -501,7 +501,7 @@ namespace UnityEngineEx
             {
                 if (ResManager.IsInUnityFolder)
                 {
-                    return ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/instance" + _InstanceHolder.InstanceID.ToString();
+                    return ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/instance" + _InstanceHolder.InstanceID.ToString();
                 }
 #if USE_CURRENT_FOLDER_AS_DATAPATH
                 return "./cache/instance" + _InstanceHolder.InstanceID.ToString();

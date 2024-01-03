@@ -465,7 +465,7 @@ namespace UnityEngineEx
 #if UNITY_EDITOR
 #if UNITY_INCLUDE_TESTS
 #region TESTS
-namespace Mosaic.Test
+namespace Mods.Test
 {
     using UnityEngineEx;
 

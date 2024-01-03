@@ -268,7 +268,7 @@ namespace UnityEditorEx
         }
 
         /// <summary>
-        /// ResManager -> host.silas.mosaic.resmanager
+        /// ResManager -> host.silas.mods.resmanager
         /// </summary>
         public static string GetPackageName(string mod)
         {
@@ -283,7 +283,7 @@ namespace UnityEditorEx
             return null;
         }
         /// <summary>
-        /// C:/XXXXX/ResManager -> host.silas.mosaic.resmanager
+        /// C:/XXXXX/ResManager -> host.silas.mods.resmanager
         /// </summary>
         public static string GetPackageNameFromRootPath(string path)
         {
@@ -314,7 +314,7 @@ namespace UnityEditorEx
             return null;
         }
         /// <summary>
-        /// host.silas.mosaic.resmanager -> ResManager
+        /// host.silas.mods.resmanager -> ResManager
         /// </summary>
         public static string GetPackageModName(string package)
         {
@@ -329,7 +329,7 @@ namespace UnityEditorEx
             return null;
         }
         /// <summary>
-        /// host.silas.mosaic.resmanager -> C:/XXXXX/ResManager
+        /// host.silas.mods.resmanager -> C:/XXXXX/ResManager
         /// </summary>
         public static string GetPackageRoot(string package)
         {

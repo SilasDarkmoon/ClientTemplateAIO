@@ -695,9 +695,9 @@ namespace UnityEngineEx
 #if COMPATIBLE_RESMANAGER_V1
         public static string CompatibleAssetName(string asset)
         {
-            if (asset != null && asset.StartsWith("Assets/MosaicRes/"))
+            if (asset != null && asset.StartsWith("Assets/ModsRes/"))
             {
-                return asset.Substring("Assets/MosaicRes/".Length);
+                return asset.Substring("Assets/ModsRes/".Length);
             }
             return asset;
         }

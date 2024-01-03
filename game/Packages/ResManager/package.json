@@ -1,14 +1,14 @@
 {
 
-    "name": "host.silas.mosaic.resmanager",
+    "name": "host.silas.mods.resmanager",
 
-    "displayName": "Mosaic Res Manager",
+    "displayName": "Mods Framework Res Manager",
 
     "version": "2.0.1",
 
     "unity": "2018.3",
 
-    "description": "Mosaic Res Manager",
+    "description": "Mods Framework Res Manager",
 
     "keywords": [
         "unity"

@@ -4,7 +4,7 @@
     "references": [
         "ResManagerEntry",
         "ResManagerEditorEntry",
-        "MosMods"
+        "ModsMain"
     ],
     "includePlatforms": [
         "Editor"

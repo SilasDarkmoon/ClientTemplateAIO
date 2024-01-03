@@ -41,7 +41,7 @@ namespace UnityEngineEx
             _cached_Application_persistentDataPath = Application.persistentDataPath;
             _cached_Application_dataPath = Application.dataPath;
             _cached_AppVerName = Application.version;
-            _cached_Mosid = IsolatedPrefs.IsolatedID;
+            _cached_Meid = IsolatedPrefs.IsolatedID;
             _UnityThreadID = ThreadLocalObj.GetThreadId();
 #else
 #if NETCOREAPP
@@ -63,18 +63,18 @@ namespace UnityEngineEx
             if (ResManager.IsInUnityFolder)
             {
                 _cached_Application_streamingAssetsPath = ResManager.UnityRoot + "/Assets/StreamingAssets";
-                _cached_Application_temporaryCachePath = ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/cache";
-                _cached_Application_persistentDataPath = ResManager.UnityRoot + "/EditorOutput/MosLuaStandalone/runtime";
+                _cached_Application_temporaryCachePath = ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/cache";
+                _cached_Application_persistentDataPath = ResManager.UnityRoot + "/EditorOutput/ModLuaStandalone/runtime";
                 _cached_Application_dataPath = ResManager.UnityRoot;
             }
 
             _cached_AppVerName = typeof(ThreadSafeValues).Assembly.GetName().Version?.ToString() ?? "0.0.0.0";
-            _cached_Mosid = IsolatedPrefs.IsolatedID;
+            _cached_Meid = IsolatedPrefs.IsolatedID;
             _UnityThreadID = (ulong)System.Threading.Thread.CurrentThread.ManagedThreadId;
 #endif
             _IsMainThread = true;
 #if UNITY_STANDALONE_WIN && !UNITY_EDITOR && (DEVELOPMENT_BUILD || DEBUG || DEBUG_SHOW_PROCESS_ID_IN_WIN_TITLE)
-            SetWindowTitle(System.Diagnostics.Process.GetCurrentProcess().Id.ToString() + "-" + _cached_Mosid);
+            SetWindowTitle(System.Diagnostics.Process.GetCurrentProcess().Id.ToString() + "-" + _cached_Meid);
 #endif
         }
 
@@ -87,7 +87,7 @@ namespace UnityEngineEx
         private static string _cached_Application_persistentDataPath;
         private static string _cached_Application_dataPath;
         private static string _cached_AppVerName;
-        private static string _cached_Mosid;
+        private static string _cached_Meid;
         private static ulong _UnityThreadID;
         [ThreadStatic] private static bool _IsMainThread;
 
@@ -100,7 +100,7 @@ namespace UnityEngineEx
         public static string AppPersistentDataPath { get { return _cached_Application_persistentDataPath; } }
         public static string AppDataPath { get { return _cached_Application_dataPath; } }
         public static string AppVerName { get { return _cached_AppVerName; } }
-        public static string Mosid { get { return _cached_Mosid; } }
+        public static string Meid { get { return _cached_Meid; } }
         public static ulong UnityThreadID { get { return _UnityThreadID; } }
         public static bool IsMainThread { get { return _IsMainThread; } }
         public static ulong ThreadId

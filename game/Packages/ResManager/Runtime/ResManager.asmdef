@@ -6,7 +6,7 @@
         "Unity.IO.Compression",
         "JsonObject",
         "ResManagerEntry",
-        "MosMods"
+        "ModsMain"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

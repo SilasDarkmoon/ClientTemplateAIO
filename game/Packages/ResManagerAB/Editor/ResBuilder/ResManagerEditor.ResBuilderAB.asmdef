@@ -4,7 +4,7 @@
     "references": [
         "ResManager",
         "ResManagerEditor",
-        "MosMods",
+        "ModsMain",
         "ModsEditor",
         "ResManagerEditor.ResBuilder",
         "ResManagerAB"
