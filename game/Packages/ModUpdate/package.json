@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.mods.update",
+
+    "displayName": "Mods Framework Update",
+
+    "version": "0.0.1",
+
+    "unity": "2018.3",
+
+    "description": "Mods Framework Update",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}

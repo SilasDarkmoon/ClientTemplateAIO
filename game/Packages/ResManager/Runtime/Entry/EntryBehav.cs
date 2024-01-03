@@ -6,9 +6,9 @@ using UnityEngineEx;
 
 using Object = UnityEngine.Object;
 
-public class ModUnityMainBehav : MonoBehaviour
+public class EntryBehav : MonoBehaviour
 {
-    public static ModUnityMainBehav MainBehavInstance;
+    public static EntryBehav EntryBehavInstance;
 
     // Other module should set these values.
     public static string SceneAfterEntry;
@@ -20,7 +20,7 @@ public class ModUnityMainBehav : MonoBehaviour
 
     private void Awake()
     {
-        MainBehavInstance = this;
+        EntryBehavInstance = this;
     }
     private void Start()
     {
@@ -173,7 +173,7 @@ public class ModUnityMainBehav : MonoBehaviour
     private static GameObject _EntrySceneBg;
     public static void LoadEntrySceneBg()
     {
-        if (MainBehavInstance)
+        if (EntryBehavInstance)
         {
             var inititems = ResManager.GetInitItems(ResManager.LifetimeOrders.ResLoader, ResManager.LifetimeOrders.PostResLoader);
             for (int i = 0; i < inititems.Length; ++i)
@@ -189,7 +189,7 @@ public class ModUnityMainBehav : MonoBehaviour
     }
     public static void UnloadEntrySceneBg()
     {
-        if (MainBehavInstance)
+        if (EntryBehavInstance)
         {
             if (_EntrySceneBg)
             {
@@ -282,7 +282,7 @@ public class ModUnityMainBehav : MonoBehaviour
 #if UNITY_EDITOR
         ResManager.AddInitItem(new WaitForReadyToStart());
 #endif
-        if (MainBehavInstance != null)
+        if (EntryBehavInstance != null)
         {
             ResManager.AddInitItem(ResManager.LifetimeOrders.PostResLoader + 5, LoadEntrySceneBg);
             ResManager.AddInitItem(WaitForReadyToNextScene.Instance);

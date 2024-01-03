@@ -1,0 +1,26 @@
+{
+    "name": "UpdateEditor",
+    "rootNamespace": "",
+    "references": [
+        "ResManager",
+        "Unity.IO.Compression",
+        "ResManagerEditor",
+        "ResManagerEditor.ResBuilder",
+        "ResManagerEditorEntry",
+        "ResManagerEntry",
+        "ModsEditor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_RESMANAGER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
