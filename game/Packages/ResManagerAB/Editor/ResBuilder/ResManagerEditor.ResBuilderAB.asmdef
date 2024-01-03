@@ -1,0 +1,25 @@
+{
+    "name": "ResManagerEditor.ResBuilderAB",
+    "rootNamespace": "",
+    "references": [
+        "ResManager",
+        "ResManagerEditor",
+        "MosMods",
+        "ModsEditor",
+        "ResManagerEditor.ResBuilder",
+        "ResManagerAB"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_RESMANAGER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
