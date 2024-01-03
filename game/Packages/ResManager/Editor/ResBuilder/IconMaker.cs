@@ -64,6 +64,7 @@ namespace UnityEditorEx
             return true;
         }
 
+#pragma warning disable CS0162
         public static bool ChangeImageToIco(string srcpath, string icopath)
         {
 #if UNITY_EDITOR_WIN
@@ -100,11 +101,12 @@ namespace UnityEditorEx
 #endif
             return false;
         }
+#pragma warning restore CS0162
 
-//#if UNITY_EDITOR_WIN
-//        [System.Runtime.InteropServices.DllImport("Shell32.dll")]
-//        private extern static void SHChangeNotify(int wEventId, uint uFlags, IntPtr dwItem1, IntPtr dwItem2);
-//#endif
+        //#if UNITY_EDITOR_WIN
+        //        [System.Runtime.InteropServices.DllImport("Shell32.dll")]
+        //        private extern static void SHChangeNotify(int wEventId, uint uFlags, IntPtr dwItem1, IntPtr dwItem2);
+        //#endif
 
         public static bool SetFolderIcon(string folder, string icopath)
         {

@@ -355,8 +355,10 @@ namespace UnityEngineEx
 
     public struct FrameTimerContext : IDisposable
     {
+#pragma warning disable CS0414
         private System.Diagnostics.Stopwatch _Timer;
         private string _Message;
+#pragma warning restore CS0414
         private static Dictionary<string, System.Diagnostics.Stopwatch> _Timers = new Dictionary<string, System.Diagnostics.Stopwatch>();
 
         public static System.Diagnostics.Stopwatch GetTimer(string name)

@@ -15,7 +15,7 @@ namespace UnityEngineEx
                     var _ = UnityEngine.Application.GetStackTraceLogType(UnityEngine.LogType.Log);
                     return false;
                 }
-                catch (UnityEngine.UnityException e)
+                catch (UnityEngine.UnityException)
                 {
                     return true;
                 }
