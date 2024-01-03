@@ -1,4 +1,4 @@
-namespace UnityEngineEx
+ï»¿namespace UnityEngineEx
 {
     using System;
     using System.Linq;
@@ -32,65 +32,75 @@ namespace UnityEngineEx
         public static string GetLogConfigFilePath()
         {
             var logConfigFilePath = Path.Combine(ThreadSafeValues.AppPersistentDataPath, LogConfigFileName);
-#if UNITY_EDITOR // ????????????????Editor????????
+#if UNITY_EDITOR
             logConfigFilePath = Path.GetFullPath(@"EditorOutput\Runtime\" + LogConfigFileName);
 #endif
             return logConfigFilePath;
         }
-        // ??????????????????????????????????????
         public static void SetLogConfigFile(bool logEnabled, bool logToFileEnabled, bool logErrorEnabled, bool logToConsoleEnabled, bool logInfoEnabled, bool logWarningEnabled, bool logCSharpStackTraceEnabled)
         {
-            var msg = new StringBuilder();
             LogEnabled = logEnabled;
-            msg.AppendLine("LogEnabled|" + (LogEnabled ? "true" : "false"));
-            LogToFileEnabled = LogEnabled && logToFileEnabled;
-            msg.AppendLine("LogToFileEnabled|" + (LogToFileEnabled ? "true" : "false"));
-            LogErrorEnabled = LogEnabled && logErrorEnabled;
-            msg.AppendLine("LogErrorEnabled|" + (LogErrorEnabled ? "true" : "false"));
-            LogToConsoleEnabled = LogEnabled && logToConsoleEnabled;
-            msg.AppendLine("LogToConsoleEnabled|" + (LogToConsoleEnabled ? "true" : "false"));
-            LogInfoEnabled = LogEnabled && logInfoEnabled;
-            msg.AppendLine("LogInfoEnabled|" + (LogInfoEnabled ? "true" : "false"));
-            LogWarningEnabled = LogEnabled && logWarningEnabled;
-            msg.AppendLine("LogWarningEnabled|" + (LogWarningEnabled ? "true" : "false"));
-            LogCSharpStackTraceEnabled = LogEnabled && logCSharpStackTraceEnabled;
-            msg.AppendLine("LogCSharpStackTraceEnabled|" + (LogCSharpStackTraceEnabled ? "true" : "false"));
-            var isEditor = false;
+            LogInfoEnabled = logInfoEnabled;
+            LogWarningEnabled = logWarningEnabled;
+            LogErrorEnabled = logErrorEnabled;
+            LogToConsoleEnabled = logToConsoleEnabled;
+            LogToFileEnabled = logToFileEnabled;
+            LogCSharpStackTraceEnabled = logCSharpStackTraceEnabled;
+
+            bool isEditor = false;
 #if UNITY_EDITOR
             isEditor = true;
 #endif
-            if (isEditor == true) return;
+            if (isEditor)
+            {
+                return;
+            }
+
+            var msg = Logger.GetStringBuilder();
+            msg.AppendLine("LogEnabled|" + (LogEnabled ? "true" : "false"));
+            msg.AppendLine("LogInfoEnabled|" + (LogInfoEnabled ? "true" : "false"));
+            msg.AppendLine("LogWarningEnabled|" + (LogWarningEnabled ? "true" : "false"));
+            msg.AppendLine("LogErrorEnabled|" + (LogErrorEnabled ? "true" : "false"));
+            msg.AppendLine("LogToConsoleEnabled|" + (LogToConsoleEnabled ? "true" : "false"));
+            msg.AppendLine("LogToFileEnabled|" + (LogToFileEnabled ? "true" : "false"));
+            msg.AppendLine("LogCSharpStackTraceEnabled|" + (LogCSharpStackTraceEnabled ? "true" : "false"));
             try
             {
                 var configFilePath = GetLogConfigFilePath();
-                if (File.Exists(configFilePath)) DeleteFile(configFilePath);
-                using (var sw = PlatDependant.OpenWriteText(configFilePath)) sw.Write(msg.ToString());
+                using (var sw = OpenWriteText(configFilePath))
+                {
+                    sw.Write(msg.ToString());
+                }
             }
             catch (Exception e)
             {
                 Debug.LogException(e);
             }
+            finally
+            {
+                Logger.ReturnStringBuilder(msg);
+            }
         }
-        //??????????????????????????????
         public static void ResetLogConfigFile()
         {
             ResetLogEnabled();
-            var isEditor = false;
+            bool isEditor = false;
 #if UNITY_EDITOR
             isEditor = true;
 #endif
-            if (isEditor == true) return;
+            if (isEditor)
+            {
+                return;
+            }
             var configFilePath = GetLogConfigFilePath();
-            if (!File.Exists(configFilePath)) return;
             DeleteFile(configFilePath);
         }
-        //????????log????????????????
         public static void ResetLogEnabled()
         {
             var isDevelopment = IsDevelopmentOrEditor();
             LogEnabled = true;
-            LogToFileEnabled = true;
             LogErrorEnabled = true;
+            LogToFileEnabled = true;
             LogToConsoleEnabled = true;
             LogInfoEnabled = isDevelopment;
             LogWarningEnabled = isDevelopment;
@@ -101,13 +111,8 @@ namespace UnityEngineEx
         public static volatile bool LogInfoEnabled = true;
         public static volatile bool LogWarningEnabled = true;
         public static volatile bool LogErrorEnabled = true;
-        public static volatile bool _LogToConsoleEnabled = true;
+        public static volatile bool LogToConsoleEnabled = true;
         public static volatile bool LogToFileEnabled = true;
-        public static bool LogToConsoleEnabled
-        {
-            get { return _LogToConsoleEnabled; }
-            set { _LogToConsoleEnabled = value; }
-        }
         [ThreadStatic]
         public static bool LogCSharpStackTraceEnabled = true;
 #if UNITY_ENGINE || UNITY_5_3_OR_NEWER
@@ -183,39 +188,34 @@ namespace UnityEngineEx
                 return rv;
             }
 #endif
-            //?????????????????????????????????????????? OpenLoggerConfig
             private static void OnInitLoggerConfig()
             {
                 ResetLogEnabled();
                 var logConfigPath = GetLogConfigFilePath();
-                if (!File.Exists(logConfigPath)) return;
+                if (!IsFileExist(logConfigPath))
+                {
+                    return;
+                }
                 try
                 {
                     using (var sr = OpenReadText(logConfigPath))
                     {
                         string item;
-                        string[] attr = null;
-                        while (!sr.EndOfStream)
+                        while ((item = sr.ReadLine()) != null)
                         {
-                            item = sr.ReadLine();
-                            if (string.IsNullOrEmpty(item) || item.IndexOf("|") == -1) continue;
-                            attr = item.Trim().Split('|');
-                            if (attr.Length < 2) continue;
-                            if ("LogEnabled" == attr[0]) LogEnabled = attr[1] == "true";
-                            if ("LogToFileEnabled" == attr[0]) LogToFileEnabled = attr[1] == "true";
-                            if ("LogErrorEnabled" == attr[0]) LogErrorEnabled = attr[1] == "true";
-                            if ("LogToConsoleEnabled" == attr[0]) LogToConsoleEnabled = attr[1] == "true";
-                            if ("LogInfoEnabled" == attr[0]) LogInfoEnabled = attr[1] == "true";
-                            if ("LogWarningEnabled" == attr[0]) LogWarningEnabled = attr[1] == "true";
-                            if ("LogCSharpStackTraceEnabled" == attr[0]) LogCSharpStackTraceEnabled = attr[1] == "true";
+                            string[] parts = item.Split('|');
+                            if (parts == null || parts.Length < 2) continue;
+                            var key = parts[0].Trim();
+                            var val = parts[1].Trim().Equals("true", StringComparison.InvariantCultureIgnoreCase);
+                            if (key.Equals("LogEnabled", StringComparison.InvariantCultureIgnoreCase)) LogEnabled = val;
+                            if (key.Equals("LogInfoEnabled", StringComparison.InvariantCultureIgnoreCase)) LogInfoEnabled = val;
+                            if (key.Equals("LogWarningEnabled", StringComparison.InvariantCultureIgnoreCase)) LogWarningEnabled = val;
+                            if (key.Equals("LogErrorEnabled", StringComparison.InvariantCultureIgnoreCase)) LogErrorEnabled = val;
+                            if (key.Equals("LogToFileEnabled", StringComparison.InvariantCultureIgnoreCase)) LogToFileEnabled = val;
+                            if (key.Equals("LogToConsoleEnabled", StringComparison.InvariantCultureIgnoreCase)) LogToConsoleEnabled = val;
+                            if (key.Equals("LogCSharpStackTraceEnabled", StringComparison.InvariantCultureIgnoreCase)) LogCSharpStackTraceEnabled = val;
                         }
                     }
-                    LogToFileEnabled = LogToFileEnabled && LogEnabled;
-                    LogErrorEnabled = LogErrorEnabled && LogEnabled;
-                    LogToConsoleEnabled = LogToConsoleEnabled && LogEnabled;
-                    LogInfoEnabled = LogInfoEnabled && LogEnabled;
-                    LogWarningEnabled = LogWarningEnabled && LogEnabled;
-                    LogCSharpStackTraceEnabled = LogCSharpStackTraceEnabled && LogEnabled;
                 }
                 catch (Exception e)
                 {
@@ -396,7 +396,7 @@ namespace UnityEngineEx
                 StringBuilder rv = null;
                 if (LogPool.TryDequeue(out rv))
                 {
-                    rv.Remove(0, rv.Length);
+                    //rv.Clear();
                     return rv;
                 }
                 rv = new StringBuilder();
@@ -406,6 +406,7 @@ namespace UnityEngineEx
             {
                 if (sb != null)
                 {
+                    sb.Clear();
                     LogPool.Enqueue(sb);
                 }
             }
@@ -598,16 +599,88 @@ namespace UnityEngineEx
             }
         }
 
+        public static string FallbackFormat(string format, params object[] args)
+        {
+            StringBuilder sb = Logger.GetStringBuilder();
+            try
+            {
+                sb.Append("Format: ");
+                if (format == null)
+                {
+                    sb.Append("<null>");
+                }
+                else
+                {
+                    sb.Append(format);
+                }
+                if (args != null)
+                {
+                    sb.AppendLine();
+                    sb.AppendLine("Args: ");
+                    for (int i = 0; i < args.Length; ++i)
+                    {
+                        var arg = args[i];
+                        sb.Append("[");
+                        sb.Append(i);
+                        sb.Append("]: ");
+                        if (arg == null)
+                        {
+                            sb.AppendLine("<null>");
+                        }
+                        else
+                        {
+                            sb.AppendLine(arg.ToString());
+                        }
+                    }
+                }
+                return sb.ToString();
+            }
+            finally
+            {
+                Logger.ReturnStringBuilder(sb);
+            }
+        }
         public static void LogErrorFormat(string format, params object[] args)
         {
             if (string.IsNullOrEmpty(format) || !LogEnabled || !LogErrorEnabled) return;
-            LogError(string.Format(format, args));
+            string msg;
+            try
+            {
+                msg = string.Format(format, args);
+            }
+            catch (Exception e)
+            {
+                msg = (e.Message ?? "Format Error!") + "\n" + FallbackFormat(format, args);
+            }
+            LogError(msg);
         }
-
         public static void LogFormat(string format, params object[] args)
         {
             if (string.IsNullOrEmpty(format) || !LogEnabled || !LogInfoEnabled) return;
-            LogInfo(string.Format(format, args));
+            string msg;
+            try
+            {
+                msg = string.Format(format, args);
+            }
+            catch (Exception e)
+            {
+                msg = (e.Message ?? "Format Error!") + "\n" + FallbackFormat(format, args);
+            }
+            LogInfo(msg);
+        }
+        public static void LogWarningFormat(string format, params object[] args)
+        {
+            if (string.IsNullOrEmpty(format) || !LogEnabled || !LogWarningEnabled) return;
+            string msg;
+            try
+            {
+                msg = string.Format(format, args);
+            }
+            catch (Exception e)
+            {
+                msg = (e.Message ?? "Format Error!") + "\n" + FallbackFormat(format, args);
+            }
+            LogWarning(msg);
         }
         #endregion
 
@@ -708,29 +781,36 @@ namespace UnityEngineEx
 
         public static string FormatDataString<T>(T buffer) where T : IList<byte>
         {
-            StringBuilder result = new StringBuilder();
-            int cnt = buffer.Count;
-            for (int i = 0; i < cnt; ++i)
+            StringBuilder result = Logger.GetStringBuilder();
+            try
             {
-                result.Append(buffer[i].ToString("X2"));
-                if (i % 16 == 15)
+                int cnt = buffer.Count;
+                for (int i = 0; i < cnt; ++i)
                 {
-                    result.Append("\n");
+                    result.Append(buffer[i].ToString("X2"));
+                    if (i % 16 == 15)
+                    {
+                        result.Append("\n");
+                    }
+                    else if (i % 8 == 7)
+                    {
+                        result.Append("    ");
+                    }
+                    else if (i % 4 == 3)
+                    {
+                        result.Append("  ");
+                    }
+                    else
+                    {
+                        result.Append(" ");
+                    }
                 }
-                else if (i % 8 == 7)
-                {
-                    result.Append("    ");
-                }
-                else if (i % 4 == 3)
-                {
-                    result.Append("  ");
-                }
-                else
-                {
-                    result.Append(" ");
-                }
+                return result.ToString();
             }
-            return result.ToString();
+            finally
+            {
+                Logger.ReturnStringBuilder(result);
+            }
         }
         public static string FormatDataString(byte[] buffer)
         {
@@ -740,29 +820,36 @@ namespace UnityEngineEx
 #else
         public static string FormatDataString(Span<byte> buffer)
         {
-            StringBuilder result = new StringBuilder();
-            int cnt = buffer.Length;
-            for (int i = 0; i < cnt; ++i)
+            StringBuilder result = Logger.GetStringBuilder();
+            try
             {
-                result.Append(buffer[i].ToString("X2"));
-                if (i % 16 == 15)
+                int cnt = buffer.Length;
+                for (int i = 0; i < cnt; ++i)
                 {
-                    result.Append("\n");
+                    result.Append(buffer[i].ToString("X2"));
+                    if (i % 16 == 15)
+                    {
+                        result.Append("\n");
+                    }
+                    else if (i % 8 == 7)
+                    {
+                        result.Append("    ");
+                    }
+                    else if (i % 4 == 3)
+                    {
+                        result.Append("  ");
+                    }
+                    else
+                    {
+                        result.Append(" ");
+                    }
                 }
-                else if (i % 8 == 7)
-                {
-                    result.Append("    ");
-                }
-                else if (i % 4 == 3)
-                {
-                    result.Append("  ");
-                }
-                else
-                {
-                    result.Append(" ");
-                }
+                return result.ToString();
             }
-            return result.ToString();
+            finally
+            {
+                Logger.ReturnStringBuilder(result);
+            }
         }
 #endif
         public class DataStringUTF8DecoderFallback : System.Text.DecoderFallback
@@ -1047,37 +1134,44 @@ namespace UnityEngineEx
             }
             else
             {
-                System.Text.StringBuilder sb = new StringBuilder();
-                if (diffindex == partsrel.Length)
+                System.Text.StringBuilder sb = Logger.GetStringBuilder();
+                try
                 {
-                    // fully based on relativeTo
-                    sb.Append(".");
-                }
-                else
-                {
-                    for (int i = diffindex; i < partsrel.Length; ++i)
+                    if (diffindex == partsrel.Length)
                     {
-                        if (sb.Length > 0)
+                        // fully based on relativeTo
+                        sb.Append(".");
+                    }
+                    else
+                    {
+                        for (int i = diffindex; i < partsrel.Length; ++i)
+                        {
+                            if (sb.Length > 0)
+                            {
+                                sb.Append("/");
+                            }
+                            sb.Append("..");
+                        }
+                    }
+
+                    if (diffindex == partspath.Length)
+                    {
+                        // path is a part of relativeTo
+                    }
+                    else
+                    {
+                        for (int i = diffindex; i < partspath.Length; ++i)
                         {
                             sb.Append("/");
+                            sb.Append(partspath[i]);
                         }
-                        sb.Append("..");
                     }
+                    return sb.ToString();
                 }
-
-                if (diffindex == partspath.Length)
+                finally
                 {
-                    // path is a part of relativeTo
+                    Logger.ReturnStringBuilder(sb);
                 }
-                else
-                {
-                    for (int i = diffindex; i < partspath.Length; ++i)
-                    {
-                        sb.Append("/");
-                        sb.Append(partspath[i]);
-                    }
-                }
-                return sb.ToString();
             }
         }
 
@@ -1667,30 +1761,8 @@ namespace UnityEngineEx
             }
             return false;
         }
-        static readonly char[] WHITESPACE = new[] { '\r', '\n', '\t' };
-        public static void OpenReadTextLine(string path, Func<string, bool> fun)
-        {
-            if (string.IsNullOrEmpty(path) || !File.Exists(path)) return;
-            try
-            {
-                using (var sr = OpenReadText(path))
-                {
-                    var isLoop = true;
-                    while (!sr.EndOfStream && isLoop)
-                    {
-                        var line = sr.ReadLine();
-                        line = line.Trim(WHITESPACE).TrimEnd().TrimStart();
-                        if (fun != null) isLoop = fun(line);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                UnityEngine.Debug.LogException(e);
-            }
-        }
 
-        #region ???????????????????????????????????? ???????????????? 2023.3.10
+        #region Native Infos
         public static int GetTotalMemory()
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -1706,139 +1778,100 @@ namespace UnityEngineEx
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.LogError("[QualityManager] GetTotalMemory ??????????????????:" + e);
+                UnityEngine.Debug.LogError("[QualityManager] GetTotalMemory FAILED:" + e);
                 return SystemInfo.systemMemorySize;
             }
 #else
             return SystemInfo.systemMemorySize;
 #endif
         }
-        /// ?????????????????????????????????????????????????????????????????????? editor, ??????????????simulator???????? ???????????? editor????????
-        public static bool IsOnRunUnityEditor()
+        /// <summary>
+        /// When playing in Editor in simulator mode, we get Application.isEditor with wrong value.
+        /// </summary>
+        public static bool IsEditor
         {
+            get
+            {
 #if UNITY_EDITOR
-            return true;
+                return true;
 #else
-            return false;
+                return false;
 #endif
+            }
         }
         /// <summary>
-        /// 0 ?????????????? AndroidSimulator
-        /// 1 ???????????? AndroidSimulator 
-        /// -1 ??????¦Ä??????§Ô????????
+        /// 0 not (Android) Simulator
+        /// 1 is (Android) Simulator 
+        /// -1 not initialized
         /// </summary>
-        private static int _isRunAndroidSimulator = -1;
-        /// <summary>
-        /// ??§Ø??????????????????????????????????????????
-        /// ??§Ø?????????????? ???????????????????????????? Mac?????????????????? ??????mac????????????????????????§Ø??
-        /// ????????????????????????????????????§Ø?? ????????????mac???????????????????? 
-        /// ??????????????Android 7.0????????????????????????????????????02:00:00:00:00:00????
-        /// </summary>
-        /// <returns></returns>
-        public static bool IsRunAndroidSimulator()
+        private static int _IsSimulator = -1;
+        public static bool IsSimulator
         {
-            if (_isRunAndroidSimulator == -1)
+            get
             {
-#if UNITY_ANDROID && !UNITY_EDITOR
-                _isRunAndroidSimulator = 0;
-                try
+                if (_IsSimulator == -1)
                 {
-                    AndroidJavaObject fileReader = new AndroidJavaObject("java.io.FileReader", "/proc/diskstats");
-                    AndroidJavaObject br = new AndroidJavaObject("java.io.BufferedReader", fileReader, 2048);
-                    bool isMmcblk0 = false;
-                    string mline = "";
-                    while ((mline = br.Call<String>("readLine")) != null)
+#if UNITY_ANDROID && !UNITY_EDITOR
+                    _IsSimulator = 0;
+                    try
                     {
-                        if (mline.IndexOf("mmcblk0") == -1) continue;
-                        isMmcblk0 = true;
-                        break;
-                    }
-                    br.Call("close");
+                        AndroidJavaObject fileReader = new AndroidJavaObject("java.io.FileReader", "/proc/diskstats");
+                        AndroidJavaObject br = new AndroidJavaObject("java.io.BufferedReader", fileReader, 2048);
+                        bool isMmcblk0 = false;
+                        string mline = "";
+                        while ((mline = br.Call<String>("readLine")) != null)
+                        {
+                            if (mline.IndexOf("mmcblk0") == -1) continue;
+                            isMmcblk0 = true;
+                            break;
+                        }
+                        br.Call("close");
 
-                    if (!isMmcblk0)
-                    {
-                        //??????§à?????? x86  ????????????????????????
-                        if (SystemInfo.processorType.ToLower().IndexOf("intel x86") != -1)
+                        if (!isMmcblk0)
                         {
-                            _isRunAndroidSimulator = 1;
-                            return true;
-                        }
-                        AndroidJavaClass roSecureObj = new AndroidJavaClass("android.os.SystemProperties");
-                        AndroidJavaClass unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-                        AndroidJavaObject unityActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
-                        AndroidJavaObject unityContext = unityActivity.Call<AndroidJavaObject>("getPackageManager");
-                        //??????????????
-                        var isflash = unityContext.Call<Boolean>("hasSystemFeature", "android.hardware.camera.flash");
-                        if (!isflash)
-                        {
-                            _isRunAndroidSimulator = 1;
-                            return true;
-                        }
-                        //ro.hardware
-                        var hardware = roSecureObj.CallStatic<String>("get", "ro.hardware");
-                        if (!string.IsNullOrEmpty(hardware))
-                        {
-                            hardware = hardware.ToLower();
-                            if (hardware.Contains("ttvm") || hardware.Contains("nox") || hardware.Contains("_x86") || hardware.EndsWith("x86"))
+                            // chipset is x86. we suppose there are no intel phones any more.
+                            if (SystemInfo.processorType.ToLower().IndexOf("intel x86") != -1)
                             {
-                                _isRunAndroidSimulator = 1;
+                                _IsSimulator = 1;
                                 return true;
+                            }
+                            AndroidJavaClass roSecureObj = new AndroidJavaClass("android.os.SystemProperties");
+                            AndroidJavaClass unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                            AndroidJavaObject unityActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
+                            AndroidJavaObject unityContext = unityActivity.Call<AndroidJavaObject>("getPackageManager");
+                            // camera flash
+                            var isflash = unityContext.Call<Boolean>("hasSystemFeature", "android.hardware.camera.flash");
+                            if (!isflash)
+                            {
+                                _IsSimulator = 1;
+                                return true;
+                            }
+                            //ro.hardware
+                            var hardware = roSecureObj.CallStatic<String>("get", "ro.hardware");
+                            if (!string.IsNullOrEmpty(hardware))
+                            {
+                                hardware = hardware.ToLower();
+                                if (hardware.Contains("ttvm") || hardware.Contains("nox") || hardware.Contains("_x86") || hardware.EndsWith("x86"))
+                                {
+                                    _IsSimulator = 1;
+                                    return true;
+                                }
                             }
                         }
                     }
-                }
-                catch
-                {
-                    if (!SystemInfo.supportsGyroscope || !SystemInfo.supportsVibration) return true;
-                }
+                    catch
+                    {
+                        if (!SystemInfo.supportsGyroscope || !SystemInfo.supportsVibration) return true;
+                    }
 #else
-                _isRunAndroidSimulator = 0;
+                    _IsSimulator = 0;
 #endif
+                }
+                return _IsSimulator == 1;
             }
-            return _isRunAndroidSimulator == 1;
         }
         #endregion
-        /// <summary>
-        /// ???????? Text
-        /// </summary>
-        public static void CreateWriteTxt(string txtpath, string separator, string[] content)
-        {
-            if (string.IsNullOrEmpty(txtpath)) return;
-            var msg = "";
-            if (content != null && content.Length > 0)
-            {
-                if (string.IsNullOrEmpty(separator)) separator = "";
-                msg = string.Join(separator, content);
-            }
-            CreateWriteTxt(txtpath, msg);
-        }
-        /// <summary>
-        /// ???????? Text
-        /// </summary>
-        public static void CreateWriteTxt(string txtpath, string content)
-        {
-            if (string.IsNullOrEmpty(txtpath)) return;
-            try
-            {
-                bool isExists = File.Exists(txtpath);
-                string currPath = txtpath;
-                if (isExists) txtpath = txtpath + ".temp";
-                using (var sw = PlatDependant.OpenWriteText(txtpath))
-                {
-                    if (!string.IsNullOrEmpty(content)) sw.Write(content);
-                    sw.Flush();
-                }
-                if (isExists)
-                {
-                    DeleteFile(currPath);
-                    File.Move(txtpath, currPath);
-                }
-            }
-            catch (Exception e)
-            {
-                UnityEngine.Debug.LogException(e);
-            }
-        }
+
         public static void CopyFile(this string src, string dst)
         {
             if (IsFileSameName(src, dst))
