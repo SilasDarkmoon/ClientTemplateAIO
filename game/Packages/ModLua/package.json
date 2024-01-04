@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.mods.lua",
+
+    "displayName": "Mod Lua",
+
+    "version": "1.0.0",
+
+    "unity": "2018.3",
+
+    "description": "Mod Lua",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}

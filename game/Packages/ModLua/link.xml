@@ -1,0 +1,4 @@
+<linker>
+  <assembly fullname="UnityEngine.UI" preserve="all"/>
+  <assembly fullname="UnityEngine.CoreModule" preserve="all"/>
+</linker>

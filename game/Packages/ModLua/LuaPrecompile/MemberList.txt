@@ -1,0 +1,80 @@
+type UnityEngine.Vector2
+member field instance UnityEngine.Vector2 x // plain
+member field instance UnityEngine.Vector2 y // plain
+hubc UnityEngine.Vector2
+
+type UnityEngine.Vector3
+member field instance UnityEngine.Vector3 x // plain
+member field instance UnityEngine.Vector3 y // plain
+member field instance UnityEngine.Vector3 z // plain
+hubc UnityEngine.Vector3
+
+type UnityEngine.Vector4
+member field instance UnityEngine.Vector4 x // plain
+member field instance UnityEngine.Vector4 y // plain
+member field instance UnityEngine.Vector4 z // plain
+member field instance UnityEngine.Vector4 w // plain
+hubc UnityEngine.Vector4
+
+type UnityEngine.Bounds
+member field instance UnityEngine.Bounds center // plain
+member field instance UnityEngine.Bounds extents // plain
+hubc UnityEngine.Bounds
+
+type UnityEngine.LayerMask
+member field instance UnityEngine.LayerMask value // plain
+hubc UnityEngine.LayerMask
+
+type UnityEngine.Plane
+member field instance UnityEngine.Plane normal // plain
+member field instance UnityEngine.Plane distance // plain
+hubc UnityEngine.Plane
+
+type UnityEngine.Quaternion
+member field instance UnityEngine.Quaternion x // plain
+member field instance UnityEngine.Quaternion y // plain
+member field instance UnityEngine.Quaternion z // plain
+member field instance UnityEngine.Quaternion w // plain
+hubc UnityEngine.Quaternion
+
+type UnityEngine.Color
+member field instance UnityEngine.Color r // plain
+member field instance UnityEngine.Color g // plain
+member field instance UnityEngine.Color b // plain
+member field instance UnityEngine.Color a // plain
+hubc UnityEngine.Color
+
+type UnityEngine.Ray
+member field instance UnityEngine.Ray origin // plain
+member field instance UnityEngine.Ray direction // plain
+hubc UnityEngine.Ray
+
+type UnityEngine.Rect
+member field instance UnityEngine.Rect xMin // plain
+member field instance UnityEngine.Rect yMin // plain
+member field instance UnityEngine.Rect width // plain
+member field instance UnityEngine.Rect height // plain
+hubc UnityEngine.Rect
+
+type System.Boolean
+type System.Byte
+type System.Char
+type System.Decimal
+type System.Double
+type System.Int16
+type System.Int32
+type System.Int64
+type System.IntPtr
+type System.SByte
+type System.Single
+type System.UInt16
+type System.UInt32
+type System.UInt64
+
+type System.Type
+
+--type LuaLib.BaseDynamic
+--type LuaLib.ScriptDynamic
+--type LuaLib.BaseLua
+--type LuaLib.BaseLuaWrapper
+--type LuaLib.LuaTable

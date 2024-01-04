@@ -1,0 +1,27 @@
+{
+    "name": "LuaEditor",
+    "rootNamespace": "",
+    "references": [
+        "ModLua",
+        "ResManagerEditor",
+        "ResManagerEditorEntry",
+        "ResManager",
+        "ResManagerEntry",
+        "ResManagerEditor.ResBuilder",
+        "ModsMain",
+        "ModsEditor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_RESMANAGER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,2 @@
+#define MODLUA_API __declspec(dllexport)
+#define MODLUA_API __declspec(dllimport)

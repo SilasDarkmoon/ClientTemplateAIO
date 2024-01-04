@@ -1,0 +1,24 @@
+{
+    "name": "LuaEditor.Precompile",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a928433628054664e9e6266b4b16fb9d",
+        "GUID:4bbcf616fcd89f247a1e42b389dd2397",
+        "GUID:4e13b1e4423600b4d9626cee7e8426f9",
+        "GUID:f19c5c6eff4d2334b831595591988c72",
+        "GUID:a6e830199b8cdf24e8bb2fc58b176ea8",
+        "GUID:a97d4fb74c5fd874fa5e75598aa05611",
+        "GUID:e99987169c7533c44994db82568a28c8"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
