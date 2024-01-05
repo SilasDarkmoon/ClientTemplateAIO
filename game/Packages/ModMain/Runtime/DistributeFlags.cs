@@ -478,6 +478,13 @@ namespace UnityEngineEx
 //                    PlatDependant.LogError(e);
 //                }
 //#endif
+#if !UNITY_EDITOR
+                ModDesc cacheddesc;
+                if (_LoadedDistributeDescs.TryGetValue(flag, out cacheddesc) && (cacheddesc != null || ReferenceEquals(cacheddesc, null)))
+                {
+                    return cacheddesc;
+                }
+#endif
                 var descs = Resources.LoadAll<ModDesc>("resdesc");
                 if (descs != null)
                 {
