@@ -22,7 +22,7 @@
         public static bool IsDevelopmentOrEditor()
         {
             var isDevelopment = true;
-#if !(DEVELOPMENT_BUILD || UNITY_EDITOR)
+#if !(DEVELOPMENT_BUILD || UNITY_EDITOR) && (UNITY_ENGINE || UNITY_5_3_OR_NEWER)
             isDevelopment = false;
 #endif
             return isDevelopment;
@@ -47,7 +47,7 @@
             LogCSharpStackTraceEnabled = logCSharpStackTraceEnabled;
 
             bool isEditor = false;
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
             isEditor = true;
 #endif
             if (isEditor)
@@ -88,7 +88,7 @@
         {
             ResetLogEnabled();
             bool isEditor = false;
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
             isEditor = true;
 #endif
             if (isEditor)
@@ -247,7 +247,7 @@
 
                 RunBackgroundLongTime(prog =>
                 {
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
                     try
                     {
 #endif
@@ -283,7 +283,7 @@
                             catch { }
                             SetLogFileDone();
                         }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
                     }
                     catch (System.Threading.ThreadAbortException) { }
 #endif
@@ -1984,7 +1984,7 @@
                 {
                     work(prog);
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
                 catch (System.Threading.ThreadAbortException) { }
 #endif
                 catch (Exception e)
@@ -2058,7 +2058,7 @@
                 {
                     work(progress);
                 }
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
                 catch (System.Threading.ThreadAbortException) { }
 #endif
                 catch (Exception e)
@@ -2176,7 +2176,7 @@
             return prog;
         }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || !(UNITY_ENGINE || UNITY_5_3_OR_NEWER)
         public static bool ExecuteProcess(System.Diagnostics.ProcessStartInfo si)
         {
             bool safeWaitMode = true;
