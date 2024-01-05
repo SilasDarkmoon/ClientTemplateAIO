@@ -447,36 +447,37 @@ namespace UnityEngineEx
         {
             if (!string.IsNullOrEmpty(flag))
             {
-#if !UNITY_EDITOR
-                ModDesc cacheddesc;
-                if (_LoadedDistributeDescs.TryGetValue(flag, out cacheddesc) && (cacheddesc != null || ReferenceEquals(cacheddesc, null)))
-                {
-                    return cacheddesc;
-                }
-                try
-                {
-                    var udescdir = ThreadSafeValues.UpdatePath + "/res/moddesc/";
-                    var udescfile = udescdir + flag + ".md.txt";
-                    if (PlatDependant.IsFileExist(udescfile))
-                    {
-                        using (var sr = PlatDependant.OpenReadText(udescfile))
-                        {
-                            var json = sr.ReadToEnd();
-                            var desc = ScriptableObject.CreateInstance<ModDesc>();
-                            JsonUtility.FromJsonOverwrite(json, desc);
-                            if (desc.Mod != null)
-                            {
-                                _LoadedDistributeDescs[flag] = desc;
-                                return desc;
-                            }
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    PlatDependant.LogError(e);
-                }
-#endif
+                // Code below wants to do ModDesc hot-update. Currently, this seems useless.
+//#if !UNITY_EDITOR && (UNITY_ENGINE || UNITY_5_3_OR_NEWER)
+//                ModDesc cacheddesc;
+//                if (_LoadedDistributeDescs.TryGetValue(flag, out cacheddesc) && (cacheddesc != null || ReferenceEquals(cacheddesc, null)))
+//                {
+//                    return cacheddesc;
+//                }
+//                try
+//                {
+//                    var udescdir = ThreadSafeValues.UpdatePath + "/res/moddesc/";
+//                    var udescfile = udescdir + flag + ".md.txt";
+//                    if (PlatDependant.IsFileExist(udescfile))
+//                    {
+//                        using (var sr = PlatDependant.OpenReadText(udescfile))
+//                        {
+//                            var json = sr.ReadToEnd();
+//                            var desc = ScriptableObject.CreateInstance<ModDesc>();
+//                            JsonUtility.FromJsonOverwrite(json, desc);
+//                            if (desc.Mod != null)
+//                            {
+//                                _LoadedDistributeDescs[flag] = desc;
+//                                return desc;
+//                            }
+//                        }
+//                    }
+//                }
+//                catch (Exception e)
+//                {
+//                    PlatDependant.LogError(e);
+//                }
+//#endif
                 var descs = Resources.LoadAll<ModDesc>("resdesc");
                 if (descs != null)
                 {

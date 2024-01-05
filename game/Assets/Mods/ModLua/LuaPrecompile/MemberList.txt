@@ -1,0 +1,14 @@
+member * * LuaLib.LuaHub+LuaHubC LIB_VER
+member * * LuaLib.LuaHub+LuaHubC LuaPrecompileEnabled
+member * * UnityEngine.Application isEditor
+member * * UnityEngine.Debug isDebugBuild
+member * * UnityEngine.Rendering.GraphicsSettings renderPipelineAsset
+member * * UnityEngine.Vector3 back
+member * * UnityEngine.Vector3 down
+member * * UnityEngine.Vector3 forward
+member * * UnityEngine.Vector3 fwd
+member * * UnityEngine.Vector3 left
+member * * UnityEngine.Vector3 one
+member * * UnityEngine.Vector3 right
+member * * UnityEngine.Vector3 up
+member * * UnityEngine.Vector3 zero
