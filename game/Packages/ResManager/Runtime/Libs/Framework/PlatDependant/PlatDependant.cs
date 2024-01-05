@@ -12,11 +12,10 @@
     using Unity.IO.Compression;
 #else
     using System.IO.Compression;
-    using UnityEngine;
 #endif
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-    using UnityEngine.Android;
+    using UnityEngine;
 #endif
 
 #if UNITY_EDITOR
