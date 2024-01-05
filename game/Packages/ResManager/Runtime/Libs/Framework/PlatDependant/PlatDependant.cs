@@ -6,7 +6,6 @@
     using System.Collections.Generic;
     using System.Text;
     using System.IO;
-    using UnityEngine;
     using System.Text.RegularExpressions;
 
 #if (UNITY_ENGINE || UNITY_5_3_OR_NEWER) && !NET_4_6 && !NET_STANDARD_2_0
@@ -74,7 +73,11 @@
             }
             catch (Exception e)
             {
-                Debug.LogException(e);
+#if UNITY_ENGINE || UNITY_5_3_OR_NEWER
+                UnityEngine.Debug.LogException(e);
+#else
+                Console.WriteLine(e);
+#endif
             }
             finally
             {
@@ -219,7 +222,11 @@
                 }
                 catch (Exception e)
                 {
-                    Debug.LogException(e);
+#if UNITY_ENGINE || UNITY_5_3_OR_NEWER
+                    UnityEngine.Debug.LogException(e);
+#else
+                    Console.WriteLine(e);
+#endif
                 }
             }
             static Logger()
@@ -1782,7 +1789,11 @@
                 return SystemInfo.systemMemorySize;
             }
 #else
-            return SystemInfo.systemMemorySize;
+#if UNITY_ENGINE || UNITY_5_3_OR_NEWER
+            return UnityEngine.SystemInfo.systemMemorySize;
+#else
+            return 0;
+#endif
 #endif
         }
         /// <summary>
