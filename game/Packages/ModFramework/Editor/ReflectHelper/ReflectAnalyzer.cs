@@ -471,11 +471,11 @@ namespace UnityEditorEx
                 ParseTypeMemberList(members, ntype);
             }
         }
-        internal static string GetIDString(this TypeDefinition type)
+        public static string GetIDString(this TypeDefinition type)
         {
             return type.FullName.Replace('/', '+');
         }
-        internal static string GetIDString(this TypeReference type)
+        public static string GetIDString(this TypeReference type)
         {
             if (type.IsArray)
             {
@@ -516,7 +516,7 @@ namespace UnityEditorEx
                 return sb.ToString();
             }
         }
-        internal static string GetIDString(this MethodDefinition method)
+        public static string GetIDString(this MethodDefinition method)
         {
             var sb = new System.Text.StringBuilder();
             sb.Append(method.Name);
