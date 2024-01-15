@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.mods.unityext",
+
+    "displayName": "Mods Framework Unity Extensions",
+
+    "version": "1.0.0",
+
+    "unity": "2018.3",
+
+    "description": "Mods Framework Unity Extensions",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
