@@ -271,8 +271,10 @@ namespace LuaLib.Test
 {
     public class LuaExtTest
     {
+#pragma warning disable CS0414 // this is for test with reflection
         private static int PrivateStaticField = 6;
-        private int PrivateInstanceField = 7; 
+        private int PrivateInstanceField = 7;
+#pragma warning restore CS0414
 
         public static void UniqueStaticPublic() { }
         private static void UniqueStaticPrivate() { }

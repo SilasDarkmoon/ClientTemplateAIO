@@ -292,9 +292,9 @@ namespace UnityEditorEx
                         if (pim != null)
                         {
                             if (pim.GetCompatibleWithEditor()
-                                && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneLinux)
+                                //&& !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneLinux)
                                 && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneLinux64)
-                                && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneLinuxUniversal)
+                                //&& !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneLinuxUniversal)
                                 && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneOSX)
                                 && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneWindows)
                                 && !pim.GetCompatibleWithPlatform(BuildTarget.StandaloneWindows64)

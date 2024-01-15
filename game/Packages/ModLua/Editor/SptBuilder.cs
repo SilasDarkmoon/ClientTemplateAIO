@@ -507,7 +507,7 @@ namespace UnityEditorEx
                     else
                     {
                         var archs = MultiBuildArchs;
-                        int mresult = int.MaxValue;
+                        //int mresult = int.MaxValue;
                         for (int j = 0; j < archs.Length; ++j)
                         {
                             var arch = archs[j];
@@ -1528,7 +1528,7 @@ namespace UnityEditorEx
             }
         }
 
-        private class SptBuilderPreExport : UnityEditor.Build.IPreprocessBuild
+        private class SptBuilderPreExport : UnityEditor.Build.IPreprocessBuildWithReport
         {
             public int callbackOrder { get { return 0; } }
             private static HashSet<string> NonSptFiles = new HashSet<string>()
@@ -1539,7 +1539,7 @@ namespace UnityEditorEx
                 "ver.txt",
             };
 
-            public void OnPreprocessBuild(BuildTarget target, string path)
+            public void OnPreprocessBuild(UnityEditor.Build.Reporting.BuildReport report)
             {
                 ResManifest sptmani = new ResManifest();
                 HashSet<string> keys = new HashSet<string>();

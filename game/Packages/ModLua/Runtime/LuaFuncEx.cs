@@ -10886,10 +10886,12 @@ namespace LuaLib
                             return (TL)trans.ConvertToLuaPack(t);
                         }
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -10938,10 +10940,12 @@ namespace LuaLib
                             return (TT)trans.ConvertFromLuaPack(p);
                         }
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -10979,10 +10983,12 @@ namespace LuaLib
                         ltype = MakeTransForTuple(t).LuaPackType;
                         return ltype;
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11008,10 +11014,12 @@ namespace LuaLib
                         ltype = MakeTransForTuple(t).LuaPackType;
                         return ltype;
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11039,10 +11047,12 @@ namespace LuaLib
                             ttype = MakeTransForLuaPack(t, isValueTuple).TupleType;
                             return ttype;
                         }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                         catch (ExecutionEngineException)
                         {
                             aotfailed = true;
                         }
+#pragma warning restore CS0618
                         catch (System.Reflection.TargetInvocationException)
                         {
                             aotfailed = true;
@@ -11068,10 +11078,12 @@ namespace LuaLib
                             ttype = MakeTransForLuaPack(t, isValueTuple).TupleType;
                             return ttype;
                         }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                         catch (ExecutionEngineException)
                         {
                             aotfailed = true;
                         }
+#pragma warning restore CS0618
                         catch (System.Reflection.TargetInvocationException)
                         {
                             aotfailed = true;
@@ -11113,8 +11125,10 @@ namespace LuaLib
                         {
                             rv = trans.ConvertToLuaPack(t);
                         }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                         catch (ExecutionEngineException)
                         { }
+#pragma warning restore CS0618
                         catch (System.Reflection.TargetInvocationException)
                         { }
                     }
@@ -11151,8 +11165,10 @@ namespace LuaLib
                         {
                             rv = trans.ConvertFromLuaPack(p);
                         }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                         catch (ExecutionEngineException)
                         { }
+#pragma warning restore CS0618
                         catch (System.Reflection.TargetInvocationException)
                         { }
                     }
@@ -11237,10 +11253,12 @@ namespace LuaLib
                             var gtranstype = typeof(DelegatedTupleTrans<,>).MakeGenericType(ttype, ptype);
                             trans = (DelegatedTupleTrans)Activator.CreateInstance(gtranstype);
                         }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                         catch (ExecutionEngineException)
                         {
                             aotfailed = true;
                         }
+#pragma warning restore CS0618
                         catch (System.Reflection.TargetInvocationException)
                         {
                             aotfailed = true;
@@ -11360,10 +11378,12 @@ namespace LuaLib
                             , vrest
                             );
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11406,10 +11426,12 @@ namespace LuaLib
                     {
                         return Activator.CreateInstance(rtype, rvalues);
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11492,10 +11514,12 @@ namespace LuaLib
                             , vrest
                             );
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11537,10 +11561,12 @@ namespace LuaLib
                     {
                         return Activator.CreateInstance(rtype, rvalues);
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11605,10 +11631,12 @@ namespace LuaLib
                             , vrest
                             );
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11643,10 +11671,12 @@ namespace LuaLib
                     {
                         return Activator.CreateInstance(rtype, rvalues);
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;
@@ -11827,10 +11857,12 @@ namespace LuaLib
                             return 1;
                         }
                     }
+#pragma warning disable CS0618 // in normal CLR this exception will never be raised, but in IL2CPP, it will be raised when there is no-AOT error.
                     catch (ExecutionEngineException)
                     {
                         aotfailed = true;
                     }
+#pragma warning restore CS0618
                     catch (System.Reflection.TargetInvocationException)
                     {
                         aotfailed = true;

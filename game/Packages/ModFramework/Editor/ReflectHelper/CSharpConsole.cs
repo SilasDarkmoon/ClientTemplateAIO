@@ -245,7 +245,7 @@ namespace UnityEditorEx
                             //Debug.Log(loc);
                             compilerOption.ReferencedAssemblies.Add(loc);
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             //PlatDependant.LogError(e);
                         }
