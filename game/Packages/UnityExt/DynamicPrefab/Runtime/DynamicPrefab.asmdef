@@ -1,0 +1,16 @@
+{
+    "name": "DynamicPrefab",
+    "rootNamespace": "",
+    "references": [
+        "ResManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
