@@ -1,0 +1,28 @@
+{
+    "name": "PHSpriteEditor",
+    "rootNamespace": "",
+    "references": [
+        "PHSprite",
+        "ResManager",
+        "ResManagerEditor",
+        "JsonObject",
+        "ResManagerEditorEntry",
+        "ResManagerEntry",
+        "ResManagerEditor.ResBuilder",
+        "ResManagerEditor.ResBuilderAB",
+        "ModsEditor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_RESMANAGER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
