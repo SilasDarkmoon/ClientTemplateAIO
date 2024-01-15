@@ -400,7 +400,7 @@ namespace UnityEditorEx
 
         public static string GetAssetNameFromPath(string path)
         {
-            var file = path;
+            var file = System.IO.Path.GetFullPath(path);
             var package = ModEditor.GetPackageNameFromPath(file);
             if (string.IsNullOrEmpty(package))
             {

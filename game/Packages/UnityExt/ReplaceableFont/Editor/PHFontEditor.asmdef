@@ -1,0 +1,28 @@
+{
+    "name": "PHFontEditor",
+    "rootNamespace": "",
+    "references": [
+        "ResManager",
+        "ResManagerEditor",
+        "JsonObject",
+        "PHFont",
+        "ResManagerEditorEntry",
+        "ResManagerEntry",
+        "ResManagerEditor.ResBuilder",
+        "ModsEditor",
+        "ModsMain"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_RESMANAGER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
