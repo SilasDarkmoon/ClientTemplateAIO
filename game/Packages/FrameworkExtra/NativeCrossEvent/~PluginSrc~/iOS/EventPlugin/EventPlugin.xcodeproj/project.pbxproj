@@ -1,0 +1,349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1E95E46420EF4DAA00887E86 /* Aggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1E95E46520EF4DAA00887E86 /* Build configuration list for PBXAggregateTarget "Aggregate" */;
+			buildPhases = (
+				1E95E46820EF4DBB00887E86 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Aggregate;
+			productName = Aggregate;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1E95E45D20EF3C3C00887E86 /* EventPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E95E45C20EF3C3C00887E86 /* EventPlugin.m */; };
+		1E95E45E20EF3C3C00887E86 /* EventPlugin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E95E45B20EF3C3C00887E86 /* EventPlugin.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E95E45620EF3C3C00887E86 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				1E95E45E20EF3C3C00887E86 /* EventPlugin.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1E95E45820EF3C3C00887E86 /* libEventPlugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEventPlugin.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E95E45B20EF3C3C00887E86 /* EventPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventPlugin.h; sourceTree = "<group>"; };
+		1E95E45C20EF3C3C00887E86 /* EventPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPlugin.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E95E45520EF3C3C00887E86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E95E44F20EF3C3C00887E86 = {
+			isa = PBXGroup;
+			children = (
+				1E95E45A20EF3C3C00887E86 /* EventPlugin */,
+				1E95E45920EF3C3C00887E86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E95E45920EF3C3C00887E86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E95E45820EF3C3C00887E86 /* libEventPlugin.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E95E45A20EF3C3C00887E86 /* EventPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				1E95E45B20EF3C3C00887E86 /* EventPlugin.h */,
+				1E95E45C20EF3C3C00887E86 /* EventPlugin.m */,
+			);
+			path = EventPlugin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E95E45720EF3C3C00887E86 /* EventPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E95E46120EF3C3C00887E86 /* Build configuration list for PBXNativeTarget "EventPlugin" */;
+			buildPhases = (
+				1E95E45420EF3C3C00887E86 /* Sources */,
+				1E95E45520EF3C3C00887E86 /* Frameworks */,
+				1E95E45620EF3C3C00887E86 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventPlugin;
+			productName = EventPlugin;
+			productReference = 1E95E45820EF3C3C00887E86 /* libEventPlugin.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E95E45020EF3C3C00887E86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Silas;
+				TargetAttributes = {
+					1E95E45720EF3C3C00887E86 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					1E95E46420EF4DAA00887E86 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 1E95E45320EF3C3C00887E86 /* Build configuration list for PBXProject "EventPlugin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1E95E44F20EF3C3C00887E86;
+			productRefGroup = 1E95E45920EF3C3C00887E86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E95E45720EF3C3C00887E86 /* EventPlugin */,
+				1E95E46420EF4DAA00887E86 /* Aggregate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E95E46820EF4DBB00887E86 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${ACTION}\" = \"build\" ]\nthen\n\n#要build的target名\ntarget_Name=${PROJECT_NAME}\necho \"target_Name=${target_Name}\"\n\n#build之后的文件夹路径\nbuild_DIR=${SRCROOT}/build\necho \"build_DIR=${build_DIR}\"\n\n#真机build生成的头文件的文件夹路径\nDEVICE_DIR_INCLUDE=${build_DIR}/Release-iphoneos/include/${PROJECT_NAME}\necho \"DEVICE_DIR_INCLUDE=${DEVICE_DIR_INCLUDE}\"\n\n#真机build生成的.a文件路径\nDEVICE_DIR_A=${build_DIR}/Release-iphoneos/lib${PROJECT_NAME}.a\necho \"DEVICE_DIR_A=${DEVICE_DIR_A}\"\n\n#模拟器build生成的.a文件路径\nSIMULATOR_DIR_A=${build_DIR}/Release-iphonesimulator/lib${PROJECT_NAME}.a\necho \"SIMULATOR_DIR_A=${SIMULATOR_DIR_A}\"\n\n#目标文件夹路径\nINSTALL_DIR=${SRCROOT}/Products/${PROJECT_NAME}\necho \"INSTALL_DIR=${INSTALL_DIR}\"\n\n#目标头文件文件夹路径\nINSTALL_DIR_Headers=${SRCROOT}/Products/${PROJECT_NAME}/Headers\necho \"INSTALL_DIR_Headers=${INSTALL_DIR_Headers}\"\n\n#目标.a路径\nINSTALL_DIR_A=${SRCROOT}/Products/${PROJECT_NAME}/lib${PROJECT_NAME}.a\necho \"INSTALL_DIR_A=${INSTALL_DIR_A}\"\n\n#判断build文件夹是否存在，存在则删除\nif [ -d \"${build_DIR}\" ]\nthen\nrm -rf \"${build_DIR}\"\nfi\n\n#判断目标文件夹是否存在，存在则删除该文件夹\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n#创建目标文件夹\nmkdir -p \"${INSTALL_DIR}\"\n\n#build之前clean一下\nxcodebuild -target ${target_Name} clean\n\n#模拟器build\nxcodebuild -target ${target_Name} -configuration Release -sdk iphonesimulator\n\n#真机build\nxcodebuild -target ${target_Name} -configuration Release -sdk iphoneos\n\n#复制头文件到目标文件夹\ncp -R \"${DEVICE_DIR_INCLUDE}\" \"${INSTALL_DIR_Headers}\"\n\n#合成模拟器和真机.a包\nlipo -create \"${DEVICE_DIR_A}\" \"${SIMULATOR_DIR_A}\" -output \"${INSTALL_DIR_A}\"\n\n#打开目标文件夹\nopen \"${INSTALL_DIR}\"\n\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E95E45420EF3C3C00887E86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E95E45D20EF3C3C00887E86 /* EventPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1E95E45F20EF3C3C00887E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E95E46020EF3C3C00887E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1E95E46220EF3C3C00887E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E95E46320EF3C3C00887E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1E95E46620EF4DAA00887E86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1E95E46720EF4DAA00887E86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E95E45320EF3C3C00887E86 /* Build configuration list for PBXProject "EventPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E95E45F20EF3C3C00887E86 /* Debug */,
+				1E95E46020EF3C3C00887E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E95E46120EF3C3C00887E86 /* Build configuration list for PBXNativeTarget "EventPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E95E46220EF3C3C00887E86 /* Debug */,
+				1E95E46320EF3C3C00887E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E95E46520EF4DAA00887E86 /* Build configuration list for PBXAggregateTarget "Aggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E95E46620EF4DAA00887E86 /* Debug */,
+				1E95E46720EF4DAA00887E86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E95E45020EF3C3C00887E86 /* Project object */;
+}
