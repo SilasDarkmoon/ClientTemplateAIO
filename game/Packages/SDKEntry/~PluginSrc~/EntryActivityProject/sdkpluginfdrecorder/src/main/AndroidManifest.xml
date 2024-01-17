@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="host.silas.anative.sdkpluginfdrecorder">
+    <application>
+        <meta-data android:name="SDKPlugin_FDRecorder" android:value="host.silas.anative.sdkpluginfdrecorder.SDKPluginFDRecorder"/>
+    </application>
+    <uses-permission android:name="android.permission.READ_LOGS" tools:ignore="ProtectedPermissions" />
+</manifest>

@@ -1,0 +1,14 @@
+{
+    "name": "SDKEntry",
+    "references": [
+        "GUID:f19c5c6eff4d2334b831595591988c72"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

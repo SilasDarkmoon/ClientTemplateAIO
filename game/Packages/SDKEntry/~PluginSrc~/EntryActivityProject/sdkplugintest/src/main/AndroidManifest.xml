@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="host.silas.anative.android.sdkplugintest">
+    <application>
+        <meta-data android:name="SDKPlugin_Test" android:value="host.silas.anative.android.sdkplugintest.SDKPluginTest"/>
+    </application>
+</manifest>

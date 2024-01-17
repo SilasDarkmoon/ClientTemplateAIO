@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="host.silas.anative.sdkpluginwebview">
+    <application>
+        <meta-data android:name="SDKPlugin_WebView" android:value="host.silas.anative.sdkpluginwebview.SDKPluginWebView"/>
+    </application>
+</manifest>

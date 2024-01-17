@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.sdkentry",
+
+    "displayName": "Mods Framework SDK Entry",
+
+    "version": "0.0.1",
+
+    "unity": "2018.3",
+
+    "description": "Mods Framework SDK Entry",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
