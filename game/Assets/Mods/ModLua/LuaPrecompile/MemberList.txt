@@ -1,5 +1,12 @@
 member * * LuaLib.LuaHub+LuaHubC LIB_VER
 member * * LuaLib.LuaHub+LuaHubC LuaPrecompileEnabled
+member * * ModNet.CarbonMessageUtils ConnectionConfig
+member * * ModNet.ConnectionFactory+ConnectionConfig .ctor
+member * * ModNet.PredefinedMessages PredefinedReaders
+member * * ModNet.PredefinedMessages PredefinedTypeToID
+member * * ModNet.PredefinedMessages PredefinedWriters
+member * * ModNet.SerializationConfig .ctor
+member * * ModNet.SerializationConfig SplitterFactory
 member * * UnityEngine.Application isEditor
 member * * UnityEngine.Debug isDebugBuild
 member * * UnityEngine.Rendering.GraphicsSettings renderPipelineAsset
