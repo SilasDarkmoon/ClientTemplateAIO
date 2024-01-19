@@ -1,0 +1,19 @@
+{
+
+    "name": "host.silas.network",
+
+    "displayName": "Mods Framework Network",
+
+    "version": "0.0.1",
+
+    "unity": "2018.3",
+
+    "description": "Mods Framework Network",
+
+    "keywords": [
+        "unity"
+    ],
+
+    "category": "Unity"
+
+}
