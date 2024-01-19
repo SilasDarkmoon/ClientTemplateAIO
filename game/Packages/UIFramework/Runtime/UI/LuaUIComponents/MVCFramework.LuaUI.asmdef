@@ -1,0 +1,18 @@
+{
+    "name": "MVCFramework.LuaUI",
+    "references": [
+        "GUID:a928433628054664e9e6266b4b16fb9d",
+        "GUID:f19c5c6eff4d2334b831595591988c72"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_LUA"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

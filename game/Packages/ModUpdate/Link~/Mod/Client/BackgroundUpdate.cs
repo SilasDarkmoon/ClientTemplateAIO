@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using UnityEngine;
 #if MOD_NETWORK
-using UnityEngineEx.Net;
+using ModNet;
 #endif
 
 using Object = UnityEngine.Object;

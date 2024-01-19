@@ -1,0 +1,22 @@
+{
+    "name": "EditorUtilsFont",
+    "rootNamespace": "",
+    "references": [
+        "ResManagerEditor",
+        "ResManagerEditorEntry",
+        "PHFontEditor",
+        "JsonObject",
+        "ResManager"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

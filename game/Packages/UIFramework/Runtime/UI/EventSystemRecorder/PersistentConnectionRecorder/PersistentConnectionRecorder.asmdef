@@ -1,0 +1,21 @@
+{
+    "name": "PersistentConnectionRecorder",
+    "rootNamespace": "",
+    "references": [
+        "UIFramework",
+        "ModNetwork",
+        "ResManagerEntry",
+        "ResManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "MOD_NETWORK"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
