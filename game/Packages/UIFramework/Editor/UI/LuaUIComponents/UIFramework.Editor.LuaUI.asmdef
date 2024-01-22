@@ -1,5 +1,5 @@
 {
-    "name": "MVCFramework.Editor.LuaUI",
+    "name": "UIFramework.Editor.LuaUI",
     "references": [
         "GUID:25b75dafd9e01d34abc916c7fab1570a",
         "GUID:a6e830199b8cdf24e8bb2fc58b176ea8"

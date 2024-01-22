@@ -1,5 +1,5 @@
 {
-    "name": "MVCFramework.ResBuilder",
+    "name": "UIFramework.ResBuilder",
     "rootNamespace": "",
     "references": [
         "GUID:9c33232b26eedbc46b0254a84ecbf958",

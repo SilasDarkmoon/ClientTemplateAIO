@@ -1,18 +1,18 @@
 {
-    "name": "MVCFramework.LuaUI",
+    "name": "UIFramework.Editor",
+    "rootNamespace": "",
     "references": [
-        "GUID:a928433628054664e9e6266b4b16fb9d",
-        "GUID:f19c5c6eff4d2334b831595591988c72"
+        "GUID:72b721494f059a14f9ea84d12ba941ca"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "MOD_LUA"
-    ],
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }
