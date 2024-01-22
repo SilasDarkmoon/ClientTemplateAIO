@@ -1,4 +1,4 @@
-﻿postinit('mvc.init', 350)
-postinit('mvc.BaseCtrl', 351)
-postinit('mvc.behaviour', 352)
-postinit('mvc.Model', 353)
+﻿postinit('ui.init', 350)
+postinit('ui.BaseCtrl', 351)
+postinit('ui.behaviour', 352)
+postinit('ui.Model', 353)
